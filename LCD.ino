@@ -1,20 +1,22 @@
 #include <LiquidCrystal.h>
-int rs = 2, en = 3, d4 = 4, d5 = 5, d7 = 7;
+int rs = 2, en = 3, d4 = 4,d5 = 5, d6 = 6 , d7= 7;
 LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
-
-void ssetup() {
+int pot = A1;
+void setup(){
   lcd.begin(16,2);
+  pinMode(16,2);
 }
 
-void loop() {
+void loop(){
+  
+  int adad = analogRead(pot);
+  float volt = adad*5/1023;
   lcd.setCursor(0,0);
-  lcd.print("Ali Aspnani");
-  lcd.setCursor(0,1);
-  lcd.print("Welcome");
-  delay(1000);
+  lcd.print("Volatge:");
+  lcd.print(volt);
+  
+  delay(500);
   lcd.clear();
-  lcd.setCursor(0,0);
-  lcd.print("AliPaniashvili");
-  delay(1000);
-  lcd.clear();
+  
 }
+  
